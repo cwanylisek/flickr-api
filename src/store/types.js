@@ -1,0 +1,7 @@
+const ADD_ANIMALS = 'ADD_ANIMALS'
+const RESET_ANIMALS = 'RESET_ANIMALS'
+
+export default {
+    ADD_ANIMALS,
+    RESET_ANIMALS
+}
