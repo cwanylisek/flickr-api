@@ -7,8 +7,20 @@ const INITIAL_STATE = {
         'Cat',
         'Dog',
         'Giraffe'
+    ],
+    userData: [
+        {
+            id: 1,
+            firstName: 'Marilyn',
+            lastName: 'Monroe',
+            city: 'Poznan',
+            country: 'PL',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum provident culpa voluptas officiis odit consectetur iure. Laborum vero quis, mollitia expedita iste eveniet laudantium ab nam, assumenda id porro veritatis.',
+            quote: "If you're gonna be two-faced at least make one of them pretty."
+        }
     ]
 }
+
 
 const animalsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -28,7 +40,7 @@ const animalsReducer = (state = INITIAL_STATE, action) => {
 }
 
 const rootReducer = combineReducers({
-    animals: animalsReducer
+    animalsReducer
 })
 
 export default rootReducer;

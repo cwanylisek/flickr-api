@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router';
 import logo from './logo.svg';
-import './App.css';
-import { createStore, bindActionCreators } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './store/reducers';
-
-import actions from './store/actions';
+import './App.scss';
+import { Navbar } from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
+import Gallery from './components/Gallery/Gallery';
 
 // const initialFruits = {
 //     listFruits: 'Favorite',
@@ -45,29 +44,16 @@ import actions from './store/actions';
 //animalsActions.reset();
 
 
-const store = createStore(rootReducer, composeWithDevTools());
 
-store.dispatch(actions.add('testtt'));
-
-window.store = store
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-        </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-        </a>
-            </header>
+            <Navbar />
+            <main>
+                <Route exact path="/" component={Profile} />
+                <Route path="/gallery" component={Gallery} />
+            </main>
         </div>
     );
 }
