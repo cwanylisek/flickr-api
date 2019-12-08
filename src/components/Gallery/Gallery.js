@@ -1,11 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getPhotos } from '../../containers/Flicker/Flicker';
 
-const Gallery = props => {
-    return (
-        <div>
-            Gallery
-        </div>
-    )
+class Gallery extends Component {
+
+    componentDidMount() {
+        getPhotos();
+        console.log('dsad')
+    }
+
+    render() {
+        return (
+            <div>
+                Gallery
+            </div>
+        )
+    }
 }
 
-export default Gallery;
+const mapDispatchToProps = dispatch => ({
+    getPhotos: () => dispatch(getPhotos())
+})
+
+export default connect(null, mapDispatchToProps)(Gallery);
