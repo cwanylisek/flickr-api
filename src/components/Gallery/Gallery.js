@@ -5,8 +5,7 @@ import { getPhotos } from '../../containers/Flicker/Flicker';
 class Gallery extends Component {
 
     componentDidMount() {
-        getPhotos();
-        console.log('dsad')
+        this.props.getPhotos();
     }
 
     render() {
@@ -18,8 +17,12 @@ class Gallery extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    flickrPhotos: state.photosReducer.flickrPhotos
+})
+
 const mapDispatchToProps = dispatch => ({
     getPhotos: () => dispatch(getPhotos())
 })
 
-export default connect(null, mapDispatchToProps)(Gallery);
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

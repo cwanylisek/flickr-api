@@ -1,7 +1,7 @@
-const ADD_ANIMALS = 'ADD_ANIMALS'
-const RESET_ANIMALS = 'RESET_ANIMALS'
+const ADD = 'ADD'
+const RESET = 'RESET'
 
 export default {
-    ADD_ANIMALS,
-    RESET_ANIMALS
+    ADD,
+    RESET
 }

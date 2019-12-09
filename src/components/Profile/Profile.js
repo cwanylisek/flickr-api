@@ -24,7 +24,7 @@ const Profile = props => {
 }
 
 const mapStateToProps = state => ({
-    userData: state.animalsReducer.userData
+    userData: state.photosReducer.userData
 })
 
 export default connect(mapStateToProps, null)(Profile)

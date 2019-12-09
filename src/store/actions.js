@@ -1,11 +1,11 @@
 import types from './types';
 
-const add = animals => ({
-    type: types.ADD_ANIMALS, animals
+const add = photos => ({
+    type: types.ADD, photos
 });
 
 const reset = () => ({
-    type: types.RESET_ANIMALS
+    type: types.RESET
 });
 
 export default {
