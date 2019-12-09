@@ -33,7 +33,7 @@ const photosReducer = (state = INITIAL_STATE, action) => {
         case types.RESET:
             return {
                 ...state,
-                animals: []
+                flickrPhotos: []
             }
         default:
             return state

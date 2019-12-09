@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-store.dispatch(actions.add('testtt'));
+store.dispatch(actions.reset());
 
 window.store = store
 

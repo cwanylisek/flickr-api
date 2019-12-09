@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getPhotos } from '../../containers/Flicker/Flicker';
+import './Gallery.scss';
 
 class Gallery extends Component {
 
@@ -9,10 +10,18 @@ class Gallery extends Component {
     }
 
     render() {
+        const photos = this.props.flickrPhotos.map((photo, index) => {
+            return (
+                <div key={index}> {/* spwadzic dlaczego photo.id nie dziala */}
+                    <p><a href={photo.url} target="_blank"><img className="gallery__img" src={photo.source} /></a></p>
+                </div>
+            )
+        })
+
         return (
-            <div>
-                Gallery
-            </div>
+            <React.Fragment>
+                {photos}
+            </React.Fragment>
         )
     }
 }

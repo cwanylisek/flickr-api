@@ -27,4 +27,8 @@ const mapStateToProps = state => ({
     userData: state.photosReducer.userData
 })
 
+// const mapDispatchToProps = dispatch => ({
+//     flickrPhotos: dispatch(reset())
+// })
+
 export default connect(mapStateToProps, null)(Profile)

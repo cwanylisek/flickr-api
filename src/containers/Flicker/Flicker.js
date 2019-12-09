@@ -5,36 +5,48 @@ const apiKey = '686cd0907cf68e0ddabc6415dd881700';//https://www.flickr.com/servi
 
 const fetchPhotos = async () => {
     return await axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${apiKey}&per_page=10&format=json&nojsoncallback=1`, {
-        // params: {
-        //     method: 'flickr.photos.search',
-        //     api_key: apiKey,
-        //     tags: '',
-        //     extras: 'url_n, owner_name, date_taken, views',
-        //     page: 1,
-        //     format: 'json',
-        //     nojsoncallback: 1,
-        //     per_page: 30,
-        // }
     })
         .then(res => {
-            console.log(res, 'res')
             const json = res.data.photos;
-            console.log(json, 'json')
             return json
         })
         .catch(error => {
             console.log(error)
         })
 }
-
+//axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=${apiKey}&photo_id=49194923628&format=json&nojsoncallback=1`).then(res => console.log(res,'osobny res'))
 export const getPhotos = () => {
 
     console.log('getphotos executed');
+    let resultArray = [];
     return (
         async (dispatch) => {
-            const photos = await fetchPhotos().then(data => data.photo)
-            console.log(photos, 'photos in flicker.js')
-            photos.map(photo => dispatch(actions.add(photo)))
+
+            await fetchPhotos().then(data => {
+                console.log(data.photo)
+                let itemId = [];
+                data.photo.map(item => {
+                    return itemId = [...itemId, item.id];
+                });
+                console.log(itemId, 'itemid')
+                return itemId
+            })
+                .then(res => {
+                    console.log(res, 'res itemId')
+                    return Promise.all(res.map(item => {
+                        return axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=${apiKey}&photo_id=${item}&format=json&nojsoncallback=1`)
+                            .then(res => {
+                                console.log(res.data.sizes.size, 'dsadsada')
+                                const arrResult = res.data.sizes.size;
+                                const getLastItemFromResult = arrResult.slice(0);
+                                resultArray = [...resultArray, getLastItemFromResult[0]]
+                                console.log(resultArray, 'nextarr')
+                                return resultArray
+                            })
+                    })).then(resultArray => resultArray)
+                })
+            console.log(resultArray, 'sadsa')
+            resultArray.map(photo => dispatch(actions.add(photo)))
         }
     )
 }
