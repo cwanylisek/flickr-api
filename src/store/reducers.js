@@ -8,6 +8,7 @@ const INITIAL_STATE = {
         'Dog',
         'Giraffe'
     ],
+    isLoading: true,
     flickrPhotos: [],
     userData: [
         {
@@ -34,6 +35,11 @@ const photosReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 flickrPhotos: []
+            }
+        case types.LOADING:
+            return {
+                ...state,
+                isLoading: false
             }
         default:
             return state

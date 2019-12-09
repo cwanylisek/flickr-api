@@ -12,8 +12,8 @@ class Gallery extends Component {
     render() {
         const photos = this.props.flickrPhotos.map((photo, index) => {
             return (
-                <div key={index}> {/* spwadzic dlaczego photo.id nie dziala */}
-                    <p><a href={photo.url} target="_blank"><img className="gallery__img" src={photo.source} /></a></p>
+                <div key={index}>
+                    <p><a href={photo.url} target="_blank"><img className="gallery__img" alt="marilyn" src={photo.source} /></a></p>
                 </div>
             )
         })
