@@ -12,16 +12,16 @@ class Gallery extends Component {
     render() {
         const photos = this.props.flickrPhotos.map((photo, index) => {
             return (
-                <div key={index}>
-                    <p><a href={photo.url} target="_blank"><img className="gallery__img" alt="marilyn" src={photo.source} /></a></p>
+                <div className="gallery__img-box" key={index}>
+                    <span><a href={photo.url} target="_blank"><img className="gallery__img" alt="marilyn" src={photo.source} /></a></span>
                 </div>
             )
         })
 
         return (
-            <React.Fragment>
+            <div className="gallery__container">
                 {photos}
-            </React.Fragment>
+            </div>
         )
     }
 }
