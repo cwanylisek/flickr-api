@@ -24,7 +24,11 @@ const Profile = props => {
 }
 
 const mapStateToProps = state => ({
-    userData: state.animalsReducer.userData
+    userData: state.photosReducer.userData
 })
+
+// const mapDispatchToProps = dispatch => ({
+//     flickrPhotos: dispatch(reset())
+// })
 
 export default connect(mapStateToProps, null)(Profile)

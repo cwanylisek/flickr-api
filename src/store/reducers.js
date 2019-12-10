@@ -8,6 +8,8 @@ const INITIAL_STATE = {
         'Dog',
         'Giraffe'
     ],
+    isLoading: true,
+    flickrPhotos: [],
     userData: [
         {
             id: 1,
@@ -22,17 +24,22 @@ const INITIAL_STATE = {
 }
 
 
-const animalsReducer = (state = INITIAL_STATE, action) => {
+const photosReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case types.ADD_ANIMALS:
+        case types.ADD:
                 return {
                     ...state,
-                    animals: [...state.animals, action.animals]
+                    flickrPhotos: [...state.flickrPhotos, action.photos]
                 }
-        case types.RESET_ANIMALS:
+        case types.RESET:
             return {
                 ...state,
-                animals: []
+                flickrPhotos: []
+            }
+        case types.LOADING:
+            return {
+                ...state,
+                isLoading: false
             }
         default:
             return state
@@ -40,7 +47,7 @@ const animalsReducer = (state = INITIAL_STATE, action) => {
 }
 
 const rootReducer = combineReducers({
-    animalsReducer
+    photosReducer
 })
 
 export default rootReducer;
