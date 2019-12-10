@@ -2,12 +2,6 @@ import types from './types';
 import { combineReducers } from 'redux';
 
 const INITIAL_STATE = {
-    listName: 'Favorite',
-    animals: [
-        'Cat',
-        'Dog',
-        'Giraffe'
-    ],
     isLoading: true,
     flickrPhotos: [],
     userData: [

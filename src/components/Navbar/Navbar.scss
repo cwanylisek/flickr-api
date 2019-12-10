@@ -1,0 +1,62 @@
+.navbar {
+    &__container {
+        width: 100%;
+    }
+    &__top-img {
+        height: 25vh;
+        background-image: url('../../assets/img//rocks_on_sand.jpg');
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+    &__navigation {
+        padding: 0 50px;
+        background-color: #7AD6BB;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__avatar {
+        position: relative;
+        bottom: 20px;
+        img {
+            width: 130px;
+            border-radius: 50%;
+        }
+    }
+    &__buttons {
+        display: flex;
+    }
+    &__icon {
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            color: white;
+            margin: 0 20px;
+        }
+        
+        border-radius: 50%;
+        &--active {
+            border: 1px solid white;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .navbar {
+        &__top-img {
+            height: 20vh;
+        }
+        &__navigation {
+            padding: 0 30px;
+        }
+        &__icon {
+            svg {
+                margin: 0 12px;
+            }  
+        }
+    }
+}
