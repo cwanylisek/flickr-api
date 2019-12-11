@@ -17,10 +17,10 @@ export const Navbar = props => {
                 </div>
                 <div className="navbar__buttons">
                     <NavLink to="/" exact={true} className="navbar__icon" activeClassName="navbar__icon--active">
-                        <FontAwesomeIcon icon={faUser} size="2x" />
+                        <FontAwesomeIcon icon={faUser} size="1x" />
                     </NavLink>
                     <NavLink to="/gallery" className="navbar__icon" activeClassName="navbar__icon--active">
-                        <FontAwesomeIcon icon={faImage} size="2x" />
+                        <FontAwesomeIcon icon={faImage} size="1x" />
                     </NavLink>
                 </div>
             </nav>
