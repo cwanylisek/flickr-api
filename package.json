@@ -43,14 +43,26 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-arrow-functions": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jest-transform-stub": "^2.0.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
       "./src/setupTests.js"
     ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    },
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy",
       "^.+\\.(svg|png|jpg|jpeg)$": "jest-transform-stub"
