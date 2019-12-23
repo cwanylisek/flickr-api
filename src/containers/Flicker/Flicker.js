@@ -43,6 +43,7 @@ export const getPhotos = () => {
                 })
 
             resultArray.map(photo => dispatch(actions.add(photo)))
+            dispatch(actions.loading())
         }
     )
 }

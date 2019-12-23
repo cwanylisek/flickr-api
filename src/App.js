@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router';
 import './App.scss';
 import { Navbar } from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Gallery from './components/Gallery/Gallery';
-import WithLoading from './hoc/withLoading';
+import withLoading from './hoc/withLoading';
+import { connect } from 'react-redux';
 
-function App() {
-    const GalleryWithLoading = WithLoading(Gallery);
+class App extends Component {
 
-    return (
-        <div className="App">
-            <Navbar />
-            <main>
-                <Route exact path="/" component={Profile} />
-                <Route path="/gallery" component={Gallery} />
-            </main>
-        </div>
-    );
+    render() {
+        const GalleryWithLoading = withLoading(Gallery);
+
+        return (
+            <div className="App">
+                <Navbar />
+                <main>
+                    <Route exact path="/" component={Profile} />
+                    <Route path="/gallery" component={GalleryWithLoading} />
+                </main>
+            </div>
+        );
+    }
 }
 
-export default App;
+export default connect()(App)

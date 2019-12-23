@@ -36,7 +36,7 @@ it('renders 5 box images', () => {
         </Provider>
     )
     wrapper.setProps(flickrPhotos)
-    expect(wrapper.prop('title')).toEqual=('test');
+    expect(wrapper.prop('title')).toEqual = ('test');
     // console.log(wrapper.props(), 'propsy')
     // const boxImg = wrapper.render().find('gallery__img-box');
     // expect(boxImg).toHaveLength(5);

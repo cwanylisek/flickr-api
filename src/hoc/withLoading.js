@@ -1,18 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
-const WithLoading = (props) => {
-    return class extends Component {
-        render() {
-            const { loading, ...PassThroughProps} = props;
+function withLoading(Cmp) {
+    return (props) => {
+        const { isLoading, ...passThroughProps } = props
 
-            if (loading) {
-                return (
-                    <div>loading</div>
-                );
-            }
-            return <WithLoading {...PassThroughProps} />
-        }
+        if (isLoading) {
+            return (
+                <div>
+                    loadinggggg!
+                </div>
+            )
+        } 
+            
+        return <Cmp {...passThroughProps} />;
+        
     }
 }
 
-export default WithLoading
+const mapStateToProps = (state) => ({
+    isLoading: state.photosReducer.isLoading,
+})
+
+const composedExport = compose(
+    connect(mapStateToProps, null),
+    withLoading
+)
+
+export default composedExport;

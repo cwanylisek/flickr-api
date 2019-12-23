@@ -27,6 +27,7 @@ class Gallery extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    isLoading: state.photosReducer.isLoading,
     flickrPhotos: state.photosReducer.flickrPhotos
 })
 

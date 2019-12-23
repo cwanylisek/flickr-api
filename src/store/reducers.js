@@ -28,6 +28,7 @@ const photosReducer = (state = INITIAL_STATE, action) => {
         case types.RESET:
             return {
                 ...state,
+                isLoading: true,
                 flickrPhotos: []
             }
         case types.LOADING:
