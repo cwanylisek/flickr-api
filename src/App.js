@@ -5,7 +5,6 @@ import { Navbar } from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Gallery from './components/Gallery/Gallery';
 import withLoading from './hoc/withLoading';
-import { connect } from 'react-redux';
 
 class App extends Component {
 
@@ -24,4 +23,4 @@ class App extends Component {
     }
 }
 
-export default connect()(App)
+export default App;

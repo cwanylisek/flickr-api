@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getPhotos } from '../../containers/Flicker/Flicker';
+//import { getPhotos } from '../../containers/Flicker/Flicker';
 import './Gallery.scss';
 
 class Gallery extends Component {
 
     componentDidMount() {
-        this.props.getPhotos();
+        //this.props.getPhotos();
     }
 
     render() {
@@ -31,8 +31,8 @@ const mapStateToProps = (state) => ({
     flickrPhotos: state.photosReducer.flickrPhotos
 })
 
-const mapDispatchToProps = dispatch => ({
-    getPhotos: () => dispatch(getPhotos())
-})
+// const mapDispatchToProps = dispatch => ({
+//     getPhotos: () => dispatch(getPhotos())
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery);
+export default connect(mapStateToProps, null)(Gallery);
