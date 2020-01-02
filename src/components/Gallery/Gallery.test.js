@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import Gallery from './Gallery.js';
 import store from '../../store/store';
 
-it('renders 5 box images', () => {
+it('renders 1 box images', () => {
 
     const flickrPhotos = {
         props: {
@@ -30,16 +30,16 @@ it('renders 5 box images', () => {
 
     //todo
 
-    const wrapper = shallow(
+    const wrapper = mount(
         <Provider store={store}>
             <Gallery title="test" />
         </Provider>
     )
     wrapper.setProps(flickrPhotos)
     expect(wrapper.prop('title')).toEqual = ('test');
-    // console.log(wrapper.props(), 'propsy')
-    // const boxImg = wrapper.render().find('gallery__img-box');
-    // expect(boxImg).toHaveLength(5);
+    console.log(wrapper.debug(), 'propsy')
+    const boxImg = wrapper.find('.gallery__container');
+    expect(boxImg).toHaveLength(1);
 })
 
 it('matches snapshot', () => {
